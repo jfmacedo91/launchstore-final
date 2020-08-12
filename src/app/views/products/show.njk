@@ -1,0 +1,69 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <section class="product-single container">
+    <div class="gallery">
+      <div class="highlight">
+        {% if not files[0] %}
+          <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO" alt="IMAGEM">
+        {% else %}
+          <img src="{{ files[0].src }}" alt="{{ files[0].name }}" onclick="Lightbox.open()">
+        {% endif %}
+
+        <div class="lightbox-target">
+          <img src="{{ files[0].src }}" alt="{{ files[0].name }}">
+          <a href="#" class="lightbox-close" onclick="Lightbox.close()">
+            <i class="material-icons">close</i>
+          </a><!--lightbox-close-->
+        </div><!--lightbox-target-->
+      </div><!--highlight-->
+
+      <div class="gallery-preview">
+        {% for image in files %}
+          <img
+            src="{{ image.src }}"
+            alt="{{ image.name }}"
+            {% if loop.index0 == 0 %}
+              class="active"
+            {% endif %}
+            onclick="ImageGallery.setImage(event)"
+          >
+        {% endfor %}
+      </div><!--gallery-preview-->
+    </div><!--gallery-->
+    <div class="info">
+      <h1>{{ product.name }}</h1>
+
+      <div class="published">
+        Publicado em {{ product.published.day }} às {{ product.published.hour }}
+      </div><!--published-->
+
+      <div class="description">
+        {{ product.description }}
+      </div><!--description-->
+
+      <div class="price-buy">
+        <div class="price">
+          {% if product.old_price > product.price %}
+            <span class="old">
+              {{ product.old_price }}
+            </span><!--old-->
+          {% endif %}
+
+          {{ product.price }}
+        </div><!--price-->
+
+
+        <div class="buy">
+          {% if product.status == 0 %}
+            <p class="unavalible">Indisponivel</p>
+          {% elif product.quantity == 0 %}
+            <p class="unavalible">Fora de Estoque</p>
+          {% else %}
+            <button class="button">Comprar</button>
+          {% endif %}
+        </div><!--buy-->
+      </div><!--price-buy-->
+    </div><!--info-->
+  </section><!--product-single-->
+{% endblock %}
