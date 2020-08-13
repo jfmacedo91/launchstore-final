@@ -1,0 +1,36 @@
+<div class="item">
+  <label for="name">Nome Completo</label>
+  <input type="text" name="name" id="name" value="{{ user.name }}">
+</div><!--item-->
+
+<div class="item">
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email" value="{{ user.email }}">
+</div><!--item-->
+
+<div class="item">
+  <label for="password">Senha</label>
+  <input type="password" name="password" id="password" value="{{ user.password }}">
+</div><!--item-->
+
+{% if not user.id %}
+  <div class="item">
+    <label for="passwordRepeat">Repetir senha</label>
+    <input type="password" name="passwordRepeat" id="passwordRepeat">
+  </div><!--item-->
+{% endif %}
+
+<div class="item">
+  <label for="cpf_cnpj">CPF ou CNPJ</label>
+  <input type="text" name="cpf_cnpj" id="cpf_cnpj" value="{{ user.cpf_cnpj }}">
+</div><!--item-->
+
+<div class="item">
+  <label for="cep">CEP</label>
+  <input type="text" name="cep" id="cep" value="{{ user.cep }}">
+</div><!--item-->
+
+<div class="item">
+  <label for="address">Endereço completo</label>
+  <input type="text" name="address" id="address" value="{{ user.address }}">
+</div><!--item-->

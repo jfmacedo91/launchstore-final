@@ -1,0 +1,17 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <section class="user-register container form">
+    <form action="/users/register" method="POST">
+      <div class="header">
+        <h3>Registre-se</h3>
+      </div><!--header-->
+
+      <div class="fields">
+        {% include "users/fields.njk" %}
+      </div><!--fields-->
+
+      <button class="button" type="submit">Salvar</button>
+    </form>
+  </section><!--form-->
+{% endblock %}
