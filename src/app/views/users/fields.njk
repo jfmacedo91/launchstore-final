@@ -31,14 +31,14 @@
 <div class="item">
   <div class="input">
     <label for="cpf_cnpj">CPF ou CNPJ</label>
-    <input type="text" name="cpf_cnpj" id="cpf_cnpj" value="{{ user.cpf_cnpj }}">
+    <input type="text" name="cpf_cnpj" id="cpf_cnpj" value="{{ user.cpf_cnpj }}" onkeydown="Mask.apply(this, 'cpfCnpj')">
   </div>
 </div><!--item-->
 
 <div class="item">
   <div class="input">
     <label for="cep">CEP</label>
-    <input type="text" name="cep" id="cep" value="{{ user.cep }}">
+    <input type="text" name="cep" id="cep" value="{{ user.cep }}" onkeydown="Mask.apply(this, 'cep')">
   </div>
 </div><!--item-->
 
