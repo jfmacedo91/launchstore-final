@@ -206,5 +206,35 @@ const Validate = {
       error,
       value
     }
+  },
+  isCpfCnpj(value) {
+    let error = null
+
+    const cleanValues = value.replace(/\D/g, '')
+
+    if(cleanValues.length > 11 && cleanValues.length !== 14) {
+      error = 'CNPJ inválido!'
+    } else if(cleanValues.length < 12 && cleanValues.length !== 11) {
+      error = 'CPF inválido!'
+    }
+
+    return {
+      error,
+      value
+    }
+  },
+  isCep(value) {
+    error = null
+
+    const cleanValues = value.replace(/\D/g, '')
+
+    if(cleanValues.length !== 8) {
+      error = 'CEP inválido!'
+    }
+
+    return {
+      error,
+      value
+    }
   }
 }

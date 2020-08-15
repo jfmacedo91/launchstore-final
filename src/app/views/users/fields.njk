@@ -1,21 +1,35 @@
 <div class="item">
   <div class="input">
     <label for="name">Nome Completo</label>
-    <input type="text" name="name" id="name" value="{{ user.name }}">
+    <input type="text"
+      name="name"
+      id="name"
+      value="{{ user.name }}"
+      required
+    >
   </div>
 </div><!--item-->
 
 <div class="item">
   <div class="input">
     <label for="email">Email</label>
-    <input type="email" name="email" id="email" value="{{ user.email }}" onblur="Validate.apply(this, 'isEmail')">
+    <input type="email"
+      name="email"
+      id="email"
+      value="{{ user.email }}"
+      onblur="Validate.apply(this, 'isEmail')"
+    >
   </div>
 </div><!--item-->
 
 <div class="item">
   <div class="input">
     <label for="password">Senha</label>
-    <input type="password" name="password" id="password" value="{{ user.password }}">
+    <input type="password"
+      name="password"
+      id="password"
+      value="{{ user.password }}"
+    >
   </div>
 </div><!--item-->
 
@@ -23,7 +37,10 @@
   <div class="item">
     <div class="input">
       <label for="passwordRepeat">Repetir senha</label>
-      <input type="password" name="passwordRepeat" id="passwordRepeat">
+      <input type="password"
+        name="passwordRepeat"
+        id="passwordRepeat"
+      >
     </div>
   </div><!--item-->
 {% endif %}
@@ -31,20 +48,36 @@
 <div class="item">
   <div class="input">
     <label for="cpf_cnpj">CPF ou CNPJ</label>
-    <input type="text" name="cpf_cnpj" id="cpf_cnpj" value="{{ user.cpf_cnpj }}" onkeydown="Mask.apply(this, 'cpfCnpj')">
+    <input type="text"
+      name="cpf_cnpj"
+      id="cpf_cnpj"
+      value="{{ user.cpf_cnpj }}"
+      onkeydown="Mask.apply(this, 'cpfCnpj')"
+      onblur="Validate.apply(this, 'isCpfCnpj')"
+    >
   </div>
 </div><!--item-->
 
 <div class="item">
   <div class="input">
     <label for="cep">CEP</label>
-    <input type="text" name="cep" id="cep" value="{{ user.cep }}" onkeydown="Mask.apply(this, 'cep')">
+    <input type="text"
+      name="cep"
+      id="cep"
+      value="{{ user.cep }}"
+      onkeydown="Mask.apply(this, 'cep')"
+      onblur="Validate.apply(this, 'isCep')"
+    >
   </div>
 </div><!--item-->
 
 <div class="item">
   <div class="input">
     <label for="address">Endereço completo</label>
-    <input type="text" name="address" id="address" value="{{ user.address }}">
+    <input type="text"
+      name="address"
+      id="address"
+      value="{{ user.address }}"
+    >
   </div>
 </div><!--item-->
