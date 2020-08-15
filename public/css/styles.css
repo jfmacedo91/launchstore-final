@@ -507,10 +507,19 @@ form .item #photos-preview img {
   max-width: 500px;
 }
 
-.form input[name="email"],
+/* .form input[name="email"],
 .form input[name="password"],
 .form input[name="passwordRepeat"],
 .form input[name="cpf_cnpj"],
 .form input[name="cep"] {
   max-width: 60%;
+} */
+
+/* *** VALIDATE ERRORS *** */
+.input .error {
+  padding: 4px;
+  text-align: center;
+  border-radius: 4px;
+  color: var(--text-color);
+  background-color: var(--delete-color);
 }
