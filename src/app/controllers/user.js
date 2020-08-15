@@ -4,7 +4,7 @@ module.exports = {
   registerForm(req, res) {
     return res.render('users/register.njk')
   },
-  post(req, res) {
+  async post(req, res) {
     const keys = Object.keys(req.body)
 
     for(key of keys) {
@@ -13,10 +13,21 @@ module.exports = {
       }
     }
 
-    const { email, cpf_cnpj } = req.body
-    const user = await user.findOne({
+    let { email, cpf_cnpj, password, passwordRepeat } = req.body
+
+    cpf_cnpj = cpf_cnpj.replace(/\D/g, '')
+
+    const user = await User.findOne({
       where: { email },
       or: { cpf_cnpj }
     })
+
+    if(user)
+      return res.send('Usuário já existe!')
+
+    if(password != passwordRepeat)
+      return res.send('As senhas estão diferentes!')
+    
+    return res.send('Passou!')
   }
 }
