@@ -4,7 +4,12 @@ module.exports = {
   registerForm(req, res) {
     return res.render('users/register.njk')
   },
+  show(req, res) {
+    return res.send('Ok, cadastrado!')
+  },
   async post(req, res) {
-    return res.send('Passou!')
+    const userId = await User.create(req.body)
+
+    return res.redirect('/users')
   }
 }
