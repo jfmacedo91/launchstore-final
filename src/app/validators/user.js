@@ -5,7 +5,10 @@ async function post(req, res, next) {
 
   for(key of keys) {
     if(req.body[key] == "") {
-      return res.send('Por favor, preencha todos os campos!')
+      return res.render('users/register', {
+        user: req.body,
+        error: 'Por favor, preencha todos os campos!'
+      })
     }
   }
 
@@ -19,10 +22,16 @@ async function post(req, res, next) {
   })
 
   if(user)
-    return res.send('Usuário já existe!')
+    return res.render('users/register', {
+      user: req.body,
+      error: 'Usuário já cadastrado!'
+    })
 
   if(password != passwordRepeat)
-    return res.send('As senhas estão diferentes!')
+    return res.render('users/register', {
+      user: req.body,
+      error: 'As senhas estão diferentes!'
+    })
   
   next()
 }
