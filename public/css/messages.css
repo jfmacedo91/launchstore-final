@@ -1,0 +1,34 @@
+@keyframes hidemessage {
+  0% {
+    top: -52px;
+    opacity: 0;
+  }
+  5% {
+    top: 0px;
+    opacity: 1;
+  }
+  95% {
+    top: 0px;
+    opacity: 1;
+  }
+  100% {
+    top: -52px;
+    opacity: 0;
+  }
+}
+
+.messages {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+  color: var(--text-color);
+  opacity: 1;
+  animation: hidemessage 5000ms ease-out forwards;
+}
+
+.messages.error {
+  background-color: var(--delete-color);
+}
