@@ -177,7 +177,7 @@ form .item select {
 }
 
 ::placeholder{
-  color:  var(--delete-color);
+  color:  #666666;
   font-weight: 300;
 }
 
