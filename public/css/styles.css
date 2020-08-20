@@ -176,6 +176,11 @@ form .item select {
   background-color: #202020;
 }
 
+::placeholder{
+  color:  var(--delete-color);
+  font-weight: 300;
+}
+
 form .item select {
   -moz-appearance: none;
   -webkit-appearance: none;
