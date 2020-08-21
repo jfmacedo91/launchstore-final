@@ -27,11 +27,29 @@
           </a><!--create-->
         </li>
 
-        <li>
+        <li class="accounts">
           <a href="/accounts">
             <i class="material-icons">account_circle</i>
             Minha Conta
           </a><!--accounts-->
+          {% if user %}  
+            <ul class="submenu">
+              <li>
+                <a href="/users">Configuralções</a>
+              </li>
+              <li>
+                <a href="/buying">Meus pedidos</a>
+              </li>
+              <li>
+                <a href="/selling">Minhas vendas</a>
+              </li>
+              <li>
+                <form action="/user/logout" method="POST">
+                  <button>Sair</button>
+                </form>
+              </li>
+            </ul>
+          {% endif %}
         </li>
       </ul>
     </nav><!--primary-->
