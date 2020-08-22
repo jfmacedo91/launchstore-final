@@ -5,7 +5,7 @@ const userController = require('../app/controllers/user')
 const Validator = require('../app/validators/user')
 
 // //Login/Logout
-// routes.got('/login', sessionController.loginForm)
+routes.get('/login', sessionController.loginForm)
 // routes.post('/login', sessionController.login)
 routes.post('/logout', sessionController.logout)
 
