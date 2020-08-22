@@ -7,7 +7,7 @@ const Validator = require('../app/validators/user')
 // //Login/Logout
 // routes.got('/login', sessionController.loginForm)
 // routes.post('/login', sessionController.login)
-// routes.post('/logout', sessionController.logout)
+routes.post('/logout', sessionController.logout)
 
 // //Reset password/Forgot
 // routes.get('/forgot-password', sessionController.forgotForm)
