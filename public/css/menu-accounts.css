@@ -1,4 +1,4 @@
-.accounts {
+.accounts.loged {
   position: relative;
   display: flex;
   justify-content: center;
@@ -9,17 +9,17 @@
   transition: all 200ms;
 }
 
-.accounts:hover {
+.accounts.loged:hover {
   box-shadow: 1px 1px 3px -1px #00000099;
   background-color: #242424;
 }
 
-.accounts:hover .submenu {
+.accounts.loged:hover .submenu {
   opacity: 1;
   visibility: initial;
 }
 
-.accounts .submenu {
+.accounts.loged .submenu {
   position: absolute;
   top: 32px;
   left: 0;
@@ -34,8 +34,8 @@
   visibility: hidden;
 }
 
-.accounts .submenu li a,
-.accounts .submenu li button {
+.accounts.loged .submenu li a,
+.accounts.loged .submenu li button {
   display: inline-block;
   width: 100%;
   padding: 8px 16px;
@@ -48,8 +48,8 @@
   transition: 200ms;
 }
 
-.accounts .submenu li a:hover,
-.accounts .submenu li button:hover {
+.accounts.loged .submenu li a:hover,
+.accounts.loged .submenu li button:hover {
   color: var(--primary-color);
 }
 
