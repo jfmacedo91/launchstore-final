@@ -12,9 +12,9 @@ routes.post('/login',SessionValidator.login, sessionController.login)
 routes.post('/logout', sessionController.logout)
 
 // //Reset password/Forgot
-// routes.get('/forgot-password', sessionController.forgotForm)
+routes.get('/forgot-password', sessionController.forgotForm)
 // routes.get('/password-reset', sessionController.resetForm)
-// routes.post('/forgot-password', sessionController.forgot)
+routes.post('/forgot-password', SessionValidator.forgot, sessionController.forgot)
 // routes.post('/password-reset', sessionController.reset)
 
 // //User register
