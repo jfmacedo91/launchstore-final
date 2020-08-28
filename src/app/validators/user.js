@@ -46,11 +46,10 @@ async function post(req, res, next) {
       error: 'Usuário já cadastrado!'
     })
 
-  if(password != passwordRepeat)
-    return res.render('users/register', {
-      user: req.body,
-      error: 'A senha e a repetição da senha estão diferentes!'
-    })
+  if(password != passwordRepeat) return res.render('users/register', {
+    user: req.body,
+    error: 'A senha e a repetição da senha estão diferentes!'
+  })
   
   next()
 }
