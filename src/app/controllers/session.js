@@ -76,5 +76,11 @@ module.exports = {
         error: 'Um erro inesperado aconteceu, tente novamente!'
       })
     }
+  },
+  resetForm(req, res) {
+    return res.render('session/password-reset', { token: req.query.token })
+  },
+  reset(req, res) {
+    
   }
 }
