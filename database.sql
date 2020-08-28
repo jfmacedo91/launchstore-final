@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS launchstore;
+DROP DATABASE IF EXISTS launchstoredb;
 CREATE DATABASE launchstoredb;
 
 CREATE TABLE "products" (
@@ -46,7 +46,7 @@ CREATE TABLE "users" (
   "updated_at" timestamp DEFAULT (now())
 );
 
-ALTER TABLE "products" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("id");
+ALTER TABLE "products" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
 CREATE FUNCTION trigger_set_timestamp()
 RETURNS TRIGGER AS $$
@@ -56,12 +56,12 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER ser_timestamp
+CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON products
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
-CREATE TRIGGER ser_timestamp
+CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON users
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
@@ -72,4 +72,21 @@ CREATE TABLE "session" (
   "expire" timestamp(6) NOT NULL
 )
 WITH (OIDS=FALSE);
-ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIAlLY IMMEDIATE;
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE "users" ADD COLUMN reset_token text;
+ALTER TABLE "users" ADD COLUMN reset_token_expires text;
+
+ALTER TABLE "products"
+DROP CONSTRAINT products_user_id_fkey,
+ADD CONSTRAINT products_user_id_fkey
+FOREIGN KEY ("user_id")
+REFERENCES "users" ("id")
+ON DELETE CASCADE;
+
+ALTER TABLE "files"
+DROP CONSTRAINT files_product_id_fkey,
+ADD CONSTRAINT files_product_id_fkey
+FOREIGN KEY ("product_id")
+REFERENCES "products" ("id")
+ON DELETE CASCADE;
