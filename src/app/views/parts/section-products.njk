@@ -12,13 +12,13 @@
             style="background-image: url({{ product.img if product.img else '//placehold.it/500x300?text=PRODUTO-SEM-FOTO'}})"
           >
           </div><!--image-->
+          <h4>{{ product.name }}</h4>
           <div class="old-price">
             {% if product.oldPrice > product.price %}
               {{ product.oldPrice }}
             {% endif %}
           </div><!--old-price-->
           <p>{{ product.price }}</p>
-          <h4>{{ product.name }}</h4>
           <a href="/products/{{ product.id }}" class="button">Ver produto</a>
         </div><!--product-->
       {% endfor %}

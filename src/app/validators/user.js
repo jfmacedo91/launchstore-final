@@ -7,7 +7,7 @@ function checkAllFields(body) {
   for(key of keys) {
     if(body[key] == "") {
       return {
-        user: req.body,
+        user: body,
         error: 'Por favor, preencha todos os campos!'
       }
     }

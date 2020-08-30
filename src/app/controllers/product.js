@@ -26,6 +26,7 @@ module.exports = {
     if(req.files.length == 0)
       return res.send('Por favor, envie pelo menos uma foto!')
 
+    req.body.user_id = req.session.userId
     let results = await Product.create(req.body)
     const productId = results.rows[0].id
 
@@ -120,6 +121,6 @@ module.exports = {
   async delete(req, res) {
     await Product.delete(req.body.id)
 
-    return res.redirect('/products')
+    return res.redirect('/')
   }
 }
