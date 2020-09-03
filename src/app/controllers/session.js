@@ -1,7 +1,7 @@
-const crypto = require('crypto')
-const { hash } = require('bcryptjs')
-const mailer = require('../../lib/mailer')
 const User = require('../models/User')
+const { hash } = require('bcryptjs')
+const crypto = require('crypto')
+const mailer = require('../../lib/mailer')
 
 module.exports = {
   loginForm(req, res) {
@@ -16,7 +16,7 @@ module.exports = {
     return res.redirect('/')
   },
   forgotForm(req, res) {
-    res.render('session/forgot-password')
+    return res.render('session/forgot-password')
   },
   async forgot(req, res) {
     const user = req.user
@@ -52,7 +52,8 @@ module.exports = {
             text-decoration: none;
           "
         >
-          Não se preocupe, clique no link abaixo para recuperar sua senha.</p>
+          Não se preocupe, clique no link abaixo para recuperar sua senha.
+        </p>
         <p>
           <a href="http://localhost:3000/users/password-reset?token=${token}"
             target="_blank"
