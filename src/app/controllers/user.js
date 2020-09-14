@@ -2,7 +2,7 @@ const { hash } = require('bcryptjs')
 const { unlinkSync } = require('fs')
 
 const User = require('../models/User')
-const Product = require('../models/User')
+const Product = require('../models/Product')
 
 const { formatCep, formatCpfCnpj } = require('../../lib/utils')
 
@@ -100,8 +100,8 @@ module.exports = {
       await User.delete(req.body.id)
       req.session.destroy()
 
-      promiseResults.map(results => {
-        results.rows.map(file => {
+      promiseResults.map(files => {
+        files.map(file => {
           try {
             unlinkSync(file.path)
           } catch(err) {
