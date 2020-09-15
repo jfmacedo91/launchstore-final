@@ -6,7 +6,7 @@ const Product = require('./src/app/models/Product')
 const File = require('./src/app/models/File')
 
 let usersIds = []
-let totalUsers = 3
+let totalUsers = 4
 let productsIds = []
 let totalProducts = 10
 
