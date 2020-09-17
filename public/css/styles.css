@@ -1,15 +1,19 @@
 :root {
   --primary-color: #FD951F;
-  --secondary-color: #00B27C;
-  --text-color: #FFFFFF;
+  --secondary-color: #1F9962;
+  --text-color: #000000;
+  --header-footer-text-color: #F2F2F2;
   --delete-color: #FD5959;
+  --background-primary-color: #E9E9E9;
+  --background-secondary-color: #F2F2F2;
+  --header-footer-color: #282828;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Signika', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   text-decoration: none;
   list-style-type: none;
   border: none;
@@ -22,7 +26,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  background-color: #202020;
+  background-color: var(--background-primary-color);
 }
 
 .container {
@@ -48,12 +52,12 @@ footer {
   border-radius: 4px;
   cursor: pointer;
   transition: all 200ms;
-  color: #161616;
+  color: var(--header-footer-text-color);
   background-color: var(--primary-color);
 }
 
 .button:hover {
-  filter: brightness(85%)
+  filter: brightness(120%)
 }
 
 .button.edit {
@@ -69,8 +73,8 @@ header, footer {
   width: 100%;
   padding: 32px 0;
   text-align: center;
-  color: var(--text-color);
-  background-color: #161616;
+  color: var(--header-footer-text-color);
+  background-color: var(--header-footer-color);
 }
 
 header div.container {
@@ -88,7 +92,7 @@ header div.container a {
 .logo h1 {
   font-size: 36px;
   line-height: 46px;
-  color: var(--text-color);
+  color: var(--header-footer-text-color);
 }
 
 .logo h2 {
@@ -117,7 +121,7 @@ nav.primary ul li a {
   display: flex;
   align-items: center;
   transition: 200ms;
-  color: var(--text-color);
+  color: var(--header-footer-text-color);
 }
 
 nav.primary ul li a:hover {
@@ -136,8 +140,8 @@ section.form {
   padding: 32px 24px;
   border-radius: 4px;
   color: var(--text-color);
-  box-shadow: 1px 1px 3px -1px #00000099;
-  background-color: #242424;
+  box-shadow: 1px 1px 3px -1px #00000033;
+  background-color: var(--background-secondary-color);
 }
 
 section.form .header h3 {
@@ -173,8 +177,8 @@ form .item select {
   outline: none;
   border-radius: 4px;
   color: var(--text-color);
-  box-shadow: 1px 1px 3px -1px #00000099;
-  background-color: #202020;
+  box-shadow: 1px 1px 3px -1px #00000033;
+  background-color: var(--background-primary-color);
 }
 
 ::placeholder{
@@ -220,8 +224,9 @@ form .item #photos-upload p {
   text-align: center;
   text-transform: uppercase;
   border-radius: 4px;
-  box-shadow: 1px 1px 3px -1px #00000099;
+  box-shadow: 1px 1px 3px -1px #00000033;
   background-color: var(--secondary-color);
+  color: var(--header-footer-text-color);
 }
 
 form .item #photos-input {
@@ -283,9 +288,9 @@ form .item #photos-preview img {
   margin: 32px auto;
   padding: 32px 24px;
   border-radius: 4px;
-  box-shadow: 1px 1px 3px -1px #00000099;
+  box-shadow: 1px 1px 3px -1px #00000033;
   color: var(--text-color);
-  background-color: #242424;
+  background-color: var(--background-secondary-color);
 }
 
 /* *** PRODUCT SINGLE GALLERY *** */
@@ -347,7 +352,7 @@ form .item #photos-preview img {
   height: 90%;
   object-fit: contain;
   border-radius: 4px;
-  background-color: #242424;
+  background-color: var(--background-secondary-color);
 }
 
 .product-single .highlight .lightbox-target a.lightbox-close {
@@ -361,7 +366,7 @@ form .item #photos-preview img {
   height: 5%;
   border-radius: 4px;
   color: var(--delete-color);
-  background-color: #242424;
+  background-color: var(--background-secondary-color);
   transition: 400ms;
 }
 
@@ -392,7 +397,7 @@ form .item #photos-preview img {
   align-items: center;
   justify-content: space-between;
   padding-top: 8px;
-  border-top: 1px solid #161616;
+  border-top: 1px solid var(--header-footer-color);
 }
 
 .product-single .price-buy .price {
@@ -412,7 +417,7 @@ form .item #photos-preview img {
 .product-single .price-buy .buy button {
   font-size: 16px;
   letter-spacing: 0.4px;
-  color: var(--text-color);
+  color: var(--header-footer-text-color);
   background-color: var(--secondary-color);
 }
 
@@ -450,8 +455,9 @@ form .item #photos-preview img {
 }
 
 .shop .items h4 {
+  margin-top: 8px;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: uppercase;
   color: var(--secondary-color);
 }
