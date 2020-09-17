@@ -14,11 +14,11 @@
           </div><!--image-->
           <h4>{{ product.name }}</h4>
           <div class="old-price">
-            {% if product.oldPrice > product.price %}
-              {{ product.oldPrice }}
+            {% if product.formattedOldPrice > product.formattedPrice %}
+              {{ product.formattedOldPrice }}
             {% endif %}
           </div><!--old-price-->
-          <p>{{ product.price }}</p>
+          <p>{{ product.formattedPrice }}</p>
           <a href="/products/{{ product.id }}" class="button">Ver produto</a>
         </div><!--product-->
       {% endfor %}
