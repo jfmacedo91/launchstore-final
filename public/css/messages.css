@@ -24,7 +24,7 @@
   justify-content: center;
   width: 100%;
   padding: 16px;
-  color: var(--text-color);
+  color: var(--header-footer-text-color);
   opacity: 1;
   animation: hidemessage 5000ms ease-out forwards;
 }
