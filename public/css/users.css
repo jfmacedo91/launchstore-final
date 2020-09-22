@@ -1,0 +1,73 @@
+/* *** USER REGISTER *** */
+.users-register {
+  max-width: 500px;
+}
+
+.users-ads {
+  max-width: 700px;
+}
+
+.users-ads .items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  padding: 16px 0;
+}
+
+.users-ads .item {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  align-items: start;
+  color: var(--header-footer-color);
+}
+
+.users-ads .item .image {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  border: 1px solid var(--background-primary-color);
+  box-shadow: 2px 2px 4px -4px var(--header-footer-color);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.users-ads .info {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+
+.users-ads .info .title {
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--secondary-color);
+}
+
+.users-ads .info .price {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--header-footer-color);
+}
+
+.users-ads .info .published {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--header-footer-color);
+}
+
+.users-ads .info .actions {
+  display: flex;
+  margin-top: auto;
+}
+
+.users-ads .info .actions a {
+  margin-right: 16px;
+  color: var(--primary-color);
+}
+
+.users-ads .info .actions a:hover {
+  text-decoration: underline;
+}

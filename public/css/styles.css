@@ -512,19 +512,6 @@ form .item #photos-preview img {
   filter: opacity(1);
 }
 
-/* *** USER REGISTER *** */
-.user-register.container.form {
-  max-width: 500px;
-}
-
-/* .form input[name="email"],
-.form input[name="password"],
-.form input[name="passwordRepeat"],
-.form input[name="cpf_cnpj"],
-.form input[name="cep"] {
-  max-width: 60%;
-} */
-
 /* *** VALIDATE ERRORS *** */
 .input .error {
   padding: 4px;
