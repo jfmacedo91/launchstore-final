@@ -6,7 +6,6 @@ const Product = require('../models/Product')
 const LoadProductService = require('../services/LoadProduct')
 
 const { formatCep, formatCpfCnpj } = require('../../lib/utils')
-const { addListener } = require('process')
 
 module.exports = {
   registerForm(req, res) {
