@@ -56,19 +56,22 @@
           {{ product.formattedPrice }}
         </div><!--price-->
 
-
-        <div class="buy">
-          {% if product.status == 0 %}
-            <p class="unavalible">Indisponivel</p>
-          {% elif product.quantity == 0 %}
-            <p class="unavalible">Fora de Estoque</p>
-          {% else %}
-            <form action="/users/orders" method="POST">
-              <input type="hidden" name="id" value="{{ product.id }}">
-              <button class="button">Comprar</button>
-            </form>
-          {% endif %}
-        </div><!--buy-->
+        {% if (session.userId) and (product.user_id == session.userId) %}
+          <p class="unavailable">Você é o vendedor</p>
+        {% else %}
+          <div class="buy">
+            {% if product.status == 0 %}
+              <p class="unavalible">Indisponivel</p>
+            {% elif product.quantity == 0 %}
+              <p class="unavalible">Fora de Estoque</p>
+            {% else %}
+              <form action="/users/orders" method="POST">
+                <input type="hidden" name="id" value="{{ product.id }}">
+                <button class="button">Comprar</button>
+              </form>
+            {% endif %}
+          </div><!--buy-->
+        {% endif %}
       </div><!--price-buy-->
     </div><!--info-->
   {% endcall %}
