@@ -17,10 +17,8 @@ const Cart = {
     return this
   },
   addOne(product) {
-    //Ver se o produto já existe no carrinho
     let inCart = this.items.find(item => item.product.id == product.id)
 
-    //Se não existe
     if(!inCart) {
       inCart = {
         product: {
@@ -47,7 +45,29 @@ const Cart = {
 
     return this
   },
-  removeOne(productId) {},
+  removeOne(productId) {
+    //Pegar o item do carrinho
+    const inCart = this.items.find(item => item.product.id == productId)
+
+    if(!inCart) return this
+
+    //Atualizar o item
+    inCart.quantity--
+    inCart.price = inCart.product.price * inCart.quantity
+    inCart.formatPrice = formatPrice(inCart.price)
+
+    //Atualizar o carrinho
+    this.total.quantity--
+    this.total.price -= inCart.product.price
+    this.total.formattedPrice = formatPrice(this.total.price)
+
+    if(inCart.quantity < 1) {
+      this.items = this.items.filter(item => item.product.id != inCart.product.id)
+      return this
+    }
+
+    return this
+  },
   delete(productId) {}
 }
 
@@ -75,8 +95,12 @@ console.log('add third cart item')
 oldCart = Cart.init(oldCart).addOne(product2)
 console.log(oldCart)
 
-console.log('add last cart item')
-oldCart = Cart.init(oldCart).addOne(product)
+console.log('remove one item')
+oldCart = Cart.init(oldCart).removeOne(product.id)
+console.log(oldCart)
+
+console.log('remove one item again')
+oldCart = Cart.init(oldCart).removeOne(product.id)
 console.log(oldCart)
 
 module.exports = Cart
