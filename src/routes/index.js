@@ -1,12 +1,17 @@
 const express = require('express')
 const routes = express.Router()
-const products = require('./products')
-const users = require('./users')
+
 const homeController = require('../app/controllers/home')
 
+const products = require('./products')
+const users = require('./users')
+const cart = require('./cart')
+
 routes.get('/', homeController.index)
-routes.use('/users', users)
+
 routes.use('/products', products)
+routes.use('/users', users)
+routes.use('/cart', cart)
 
 //Alias (Atalhos)
 routes.get('/ads/create', (req, res) => {
