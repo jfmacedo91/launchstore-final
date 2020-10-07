@@ -130,3 +130,33 @@ color: var(--text-color);
   width: 240px;
   margin: 16px auto 0;
 }
+
+/* *** Menu *** */
+header div.container {
+  grid-template-columns: 220px auto 315px;
+  gap: 8px;
+}
+
+li.cart a {
+  position: relative;
+}
+
+li.cart a span {
+  position: absolute;
+  right: 5px;
+  bottom: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  border-radius: 50%;
+  background-color: var(--delete-color);
+  transition: 200ms;
+}
+
+li.cart a:hover span {
+  color: var(--header-footer-text-color);
+  filter: brightness(1.2);
+}
