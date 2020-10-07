@@ -54,7 +54,7 @@ const Cart = {
     //Atualizar o item
     inCart.quantity--
     inCart.price = inCart.product.price * inCart.quantity
-    inCart.formatPrice = formatPrice(inCart.price)
+    inCart.formattedPrice = formatPrice(inCart.price)
 
     //Atualizar o carrinho
     this.total.quantity--
