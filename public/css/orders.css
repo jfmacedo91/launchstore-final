@@ -22,3 +22,80 @@
   margin-top: 30px;
   color: var(--delete-color)
 }
+
+/* *** My orders *** */
+.orders .item-container {
+  display: grid;
+  grid-template-columns: 1fr auto auto 100px;
+  gap: 32px;
+  align-items: center;
+  padding: 16px 0;
+  color: var(--header-footer-color);
+  cursor: pointer;
+}
+
+.orders .item-container:hover {
+  border-radius: 8px;
+  background-color: var(--background-primary-color);
+}
+
+.orders .item {
+  display: flex;
+  padding: 0 16px;
+}
+
+.orders img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-right: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--background-primary-color);
+  background-color: var(--background-secondary-color);
+  box-shadow: 2px 2px 4px -4px var(--shadow-color);
+}
+
+.orders .item div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+.item .title,
+.item .price,
+.item .updated-at {
+  margin-bottom: 4px;
+  color: var(--label-color);
+}
+
+.item .price,
+.orders .total {
+  font-weight: 700;
+}
+
+.item .updated-at {
+  margin-top: auto;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.orders .status {
+  justify-self: center;
+  padding: 4px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-radius: 16px;
+  color: var(--header-footer-text-color);
+}
+
+.orders .status.open {
+  background-color: var(--primary-color);
+}
+
+.orders .status.sold {
+  background-color: var(--secondary-color);
+}
+
+.orders .status.canceled {
+  background-color: var(--delete-color);
+}
