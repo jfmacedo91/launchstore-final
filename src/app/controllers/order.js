@@ -1,10 +1,10 @@
 const LoadProductService = require('../services/LoadProduct')
+const LoadOrderService = require('../services/LoadOrder')
 const User = require('../models/User')
 const Order = require('../models/Order')
 
 const Cart = require('../../lib/cart')
 const Mailer = require('../../lib/mailer')
-const { formatPrice, date } = require('../../lib/utils')
 
 const email = (seller, product, buyer) => `
   <h2>Olá ${ seller.name }</h2>
@@ -25,53 +25,16 @@ const email = (seller, product, buyer) => `
 
 module.exports = {
   async index(req, res) {
-    //Pegar os pedidos do usuário
-    let orders = await Order.findAll({ where: { buyer_id: req.session.userId } })
-
-    const getOrdersPromise = orders.map(async order => {
-      //Detalhes do produto
-      order.product = await LoadProductService.load('product', {
-        where: { id: order.product_id }
-      })
-
-      //Detalhes do comprados
-      order.buyer = await User.findOne({
-        where: { id: order.buyer_id }
-      })
-
-      //Detalhes do vendedor
-      order.seller = await User.findOne({
-        where: { id: order.seller_id }
-      })
-
-      //Formatação de preço
-      order.formattedPrice = formatPrice(order.price)
-      order.formattedTotal = formatPrice(order.total)
-
-      //Formatação do status
-      const statuses = {
-        open: 'Aberto',
-        sold: 'Vendido',
-        canceled: 'Cancelado'
-      }
-
-      order.formattedStatus = statuses[order.status]
-
-      //Formatação de atualizado em...
-      const updatedAt = date(order.updated_at)
-
-      order.formattedUpdatedAt = `
-        ${ order.formattedStatus }
-        em
-        ${ updatedAt.day }/${ updatedAt.month }/${ updatedAt.year }
-        às
-        ${ updatedAt.hour }h${ updatedAt.minutes }min
-      `
-
-      return order
+    const orders = await LoadOrderService.load('orders', {
+      where: { buyer_id: req.session.userId }
     })
 
-    orders = await Promise.all(getOrdersPromise)
+    return res.render('orders/index', { orders })
+  },
+  async sales(req, res) {
+    const orders = await LoadOrderService.load('orders', {
+      where: { seller_id: req.session.userId }
+    })
 
     return res.render('orders/index', { orders })
   },
