@@ -27,31 +27,37 @@
           </a><!--create-->
         </li>
 
-        {% if session.userId %}
-          <li class="accounts loged">
-            <a href="/users">
-              <i class="material-icons">account_circle</i>
-              Minha Conta
-            </a><!--accounts-->
-            <ul class="submenu">
+        <li class="dropdown-container">
+          <a href="/accounts">
+            <i class="material-icons">account_circle</i>
+            Minha Conta
+          </a><!--accounts-->
+
+          {% if session.userId %}
+            <ul class="dropdown">
+              <li>
+                <a href="/users">Minha Conta</a>
+              </li>
+
               <li>
                 <a href="/users/ads">Meus Anúncios</a>
               </li>
+
+              <li>
+                <a href="/orders">Meus Pedidos</a>
+              </li>
+
+              <li>
+                <a href="/orders/sales">Minhas Vendas</a>
+              </li>
+
               <li>
                 <form action="/users/logout" method="POST">
                   <button>Sair</button>
                 </form>
               </li>
             </ul>
-          </li>
-        {% else %}
-          <li>
-            <a href="/accounts">
-              <i class="material-icons">account_circle</i>
-              Minha Conta
-            </a><!--accounts-->
-          </li>
-        {% endif %}
+          {% endif %}
 
         <li class="cart">
           <a href="/cart">
