@@ -84,7 +84,7 @@ module.exports = {
         const buyer = await User.findOne({ where: { id: buyer_id } })
 
         //Enviar email com dados da compra para o vendedor
-        await Mailer.semdMail({
+        await Mailer.sendMail({
           to: seller.email,
           from: 'no-reply@launchstore.com',
           subject: 'Novo pedido de compra',
