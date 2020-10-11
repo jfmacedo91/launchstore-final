@@ -32,11 +32,18 @@ module.exports = {
     return res.render('orders/index', { orders })
   },
   async sales(req, res) {
-    const orders = await LoadOrderService.load('orders', {
+    const sales = await LoadOrderService.load('orders', {
       where: { seller_id: req.session.userId }
     })
 
-    return res.render('orders/index', { orders })
+    return res.render('orders/sales', { sales })
+  },
+  async show(req, res) {
+    const order = await LoadOrderService.load('order', {
+      where: { id: req.params.id }
+    })
+
+    return res.render('orders/details', { order })
   },
   async post(req, res) {
     try{
