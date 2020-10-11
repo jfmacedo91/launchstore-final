@@ -205,6 +205,11 @@ form .item textarea {
   resize: none;
 }
 
+form .item .status {
+  display: grid;
+  grid-template-columns: 16px 32px 16px 32px;
+}
+
 form .item .status label {
   margin-right: 16px;
 }
